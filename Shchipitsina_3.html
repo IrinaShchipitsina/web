@@ -1,0 +1,130 @@
+<meta charset="utf-8">
+<script>
+
+	var arr = []; //формируем массив
+	for (let i=0; i<15; i++) {
+		arr[i] = Math.round(Math.random() * 40 - 10); //сама по себе функция рандом не подразумевает, что мы можем выбрать начало интервала (она по умолчанию начинается с нуля), так что добавляем -10 (если выпадет 0, то он преобразуется в -10)
+	}
+	alert("Полученный массив: " + arr);
+
+
+	var count = 0, sum = 0; //задание 1
+	for (let i=0; i<15; i++) {
+		if (arr[i] > 0) {
+			count += 1;
+			sum += arr[i];
+		}
+	}
+	alert("Среднее арифметическое положительных чисел массива: " + sum/count);
+
+
+	var arr1 = [];
+	var n = parseInt(prompt("Введите количество чисел (оно должно быть больше 10):")); //задание 2
+	if (n<=10) { //пусть будет условный оператор. если пользователь ввёл правильное число, то будет формироваться массив - так же, как в задании 1 (из того же интервала)
+		alert("Число должно быть больше 10!");
+	} else {
+		
+		for (let i=0; i<n; i++) {
+			arr1[i] = Math.round(Math.random() * 40 - 10);
+
+		}
+	}
+	alert("Ещё один массив: " + arr1)
+	var new_arr1 = []
+	for (let i=0; i<n; i++) { //делаем из отрицательных чисел квадраты. тк изначальный массив ещё понадобится в дальнейшем задании, сделаем новый массив
+
+		if (arr1[i] >= 0) {
+			new_arr1[i] = arr1[i];
+		} else {
+			new_arr1[i] = arr1[i]**2;
+		}
+
+	}
+	alert("Полученный массив: " + new_arr1)
+
+
+	let count_pos = 0, count_zero = 0, count_neg = 0, sum_pos = 0, sum_neg = 0; //задание 3
+	for (let i=0; i<n; i++) { //делаем такой же цикл, только условный оператор сложный
+		
+		if (arr1[i] > 0) {
+			count_pos += 1;
+			sum_pos += arr1[i];
+		} else if (arr1[i] == 0) {
+			count_zero += 1;
+		} else {
+			count_neg += 1;
+			sum_neg += arr1[i];
+		}
+
+	}
+	alert("Среднее арифметическое положительных чисел массива: " + sum_pos/count_pos);
+	alert("Среднее арифметическое отрицательных чисел массива: " + sum_neg/count_neg);
+	alert("Количество нулей в массиве: " + count_zero);
+
+
+	var simulator = [], count_red = 0, new_count_red = 0; //задание 4
+	alert("Обозначения цветов: красный - 0, чёрный - 1, белый - 2.")
+
+	for (let i=0; i<1000000; i++) { //создаём массив из миллиона чисел и ищем сколько раз максимально в ряд выпадало нулей
+		simulator[i] = Math.round(Math.random()*2);
+	}
+	for (let i=0; i<1000000; i++) {
+
+		if (simulator[i] != 0) {
+			if (new_count_red > count_red) {
+				count_red = new_count_red;
+				new_count_red = 0;
+			} 
+		} else new_count_red += 1;
+
+	}
+	if (new_count_red > count_red) {
+		alert("Максимальное число красных шаров в ряд: " + new_count_red)
+	} else alert("Максимальное число красных шаров в ряд: " + count_red)
+
+
+
+	var simulator1 = [], results = [], result = -100; count_red1 = 0, new_count_red1 = 0, count_black1 = 0, count_white1 = 0, new_count_black1 = 0, new_count_white1 = 0; //доп задание. делаем всё то же для белых и чёрных, а потом среди переменных-счётчиков ищем максимальное значение
+	alert("Обозначения цветов: красный - 0, чёрный - 1, белый - 2.")
+
+	for (let i=0; i<1000000; i++) { 
+		simulator1[i] = Math.round(Math.random()*2);
+	}
+
+	for (let i=0; i<1000000; i++) {
+
+		if (simulator1[i] != 0) {
+			if (new_count_red1 > count_red1) {
+				count_red1 = new_count_red1;
+				new_count_red1 = 0;
+			} 
+		} else new_count_red1 += 1;
+	
+
+		if (simulator1[i] != 1) {
+			if (new_count_black1 > count_black1) {
+				count_black1 = new_count_black1;
+				new_count_black1 = 0;
+			} 
+		} else new_count_black1 += 1;
+	
+
+		if (simulator1[i] != 2) {
+			if (new_count_white1 > count_white1) {
+				count_white1 = new_count_white1;
+				new_count_white1 = 0;
+			} 
+		} else new_count_white1 += 1;
+
+	}
+
+
+	results.push(count_red1, count_black1, count_white1, new_count_red1, new_count_black1, new_count_white1)
+	for (let i=0; i<6; i++) {
+		if (results[i] > result) result = results[i];
+	}
+	alert("Максимальная длина ряда из шаров одинакового цвета: " + result)
+
+
+
+</script>
