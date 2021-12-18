@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<script>
+	var first_number = parseInt(prompt("Введите первое число:"));
+	var second_number = parseInt(prompt("Введите второе число:"));
+	var operation = prompt("Выберите действие: сложить, вычесть, умножить, разделить, степень (возвести первое число в степень второго)");
+	if (operation == "сложить") alert(first_number + second_number);
+	else if (operation == "вычесть") alert(first_number - second_number);
+	else if (operation == "умножить") alert(first_number * second_number);
+	else if (operation == "разделить") alert(first_number / second_number);
+	else if (operation == "степень") alert(first_number ** second_number);
+
+
+	alert("Загадайте число, потом умножьте его на 2 и прибавьте 7");
+	var result = parseInt(prompt("Что получилось?"));
+	var num = (result - 7) / 2;
+	alert("Вы загадали число: " + num);
+
+
+	var name = prompt("Введите своё имя:");
+	var birth_year = parseInt(prompt("Введите год своего рождения:"));
+	var age = 2021 - birth_year;
+	document.write(name + ": ", age)
+
+</script>
