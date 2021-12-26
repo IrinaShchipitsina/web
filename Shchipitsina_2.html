@@ -1,0 +1,73 @@
+<meta charset="utf-8">
+<script>
+	
+	var guessed = 0 //задание 1
+	var answer_1 = prompt("То ли волна, то ли частица, а на самом деле - всё и сразу:");
+	if (answer_1 == "фотон") {
+		alert("Верно :)");
+		guessed += 1;
+	} else alert("Неверно :(")
+	var answer_2 = prompt("Знает каждый инженер...");
+	if (answer_2 == "вэ равно омега эр") {
+		alert("Верно :)");
+		guessed += 1;
+	} else alert ("Неверно :(")
+	alert("Отгадано: " + guessed);
+
+
+	for (let i = 1; i <= 10; i++) alert(i); //задание 2
+
+	do {      //задание 3
+		var answer = prompt("Выпьем за любовь, родная!")
+	} while (answer != "не");
+	alert("Ну ты это, заходи, если чё :)");
+
+
+	var num = Number(prompt("Введите ваш номер: ")); 
+
+	let res = 1; //задание 4
+	for (let i = 1; i <= num; i++) res *= i;
+	alert(res);
+
+
+	var surname = "щипицина"; //задание 5
+	var reversed = surname.split("").reverse().join(""); //сплит разбивает строку на символы, реверс переворачивает, джоин добавляет элементы в конец массива (строки)
+	if (surname == reversed) {
+		alert("Ого, палиндром");
+	} else alert("Палиндрома нема, бывает");
+
+
+
+	//for (let i = 3; i <= num; i++) {      # задание 6 (не работает :( )
+
+		//if ((i>10) and (i%10==5)) {
+			//continue;
+			//for (let j = 2; j <= i; j++) {
+				//if (j*j-1 > i) {
+					//alert(i);
+					//break;
+				//}
+				//if (i%j == 0) break;
+			//}
+		//} else alert(i)
+			
+	//}
+
+	
+	
+	alert("Угадайте число от 1 до 10.");  // доп задание
+	var numb = Math.round(Math.random()*10); // компьютер загадывает число
+	do {
+		var g_numb = Number(prompt("Ваше предположение?"));
+		if (g_numb != numb) {
+			alert("Неверно! Попробуйте ещё раз.");
+		}
+	} while (g_numb != numb);
+	alert("Верно!")
+	
+
+
+
+
+
+</script>

@@ -1,0 +1,144 @@
+<meta charset="utf-8">
+<script>
+	
+
+
+	let user = {         //задание 1
+  		name: "Джон",
+  		age: 30,
+
+  		sayHi() {
+    		alert(this.name);
+  		}
+
+	};
+
+	user.sayHi();
+
+
+
+	let customer = {       //задание 2
+		name: "Mary",
+		age: 24,
+		fav_product: "grapes",
+		sale_card: "202546",
+		phone_number: "304537"
+	};
+
+	alert(customer.name + '\n' + customer.age + '\n' + customer.sale_card)
+
+
+
+
+	//задание 3
+
+	let client = {
+		name: "Мария Иванова",
+		adress: "ул. Колотушкина, д. 1, кв. 1",
+		phone_number: 89005553535
+	};
+
+	let order = {
+		time: "18:00",
+		products: "пицца Мясная, сок Яблочный",
+		sum: 800,
+		cutlery_num: 1
+	};
+
+	let restaurant = {
+		rest_name: "Домино",
+		rest_adress: "ул. Кукушкина, д. 1",
+		courier_name: "Василий Васильев"
+	};
+
+	var password = prompt("Введите пароль: ");  //пусть условием будет то, что мы должны ввести пароль, чтобы получить доступ к инф-ции о заказе.
+	if (password != "12345") {
+		alert("Неверный пароль. Отказано в доступе!")
+	} else {
+		alert("ИНФОРМАЦИЯ О ЗАКАЗЕ: \nИмя клиента: " + client.name + 
+			"\nАдрес клиента: " + client.adress + "\nНомер телефона: " 
+			+ client.phone_number + "\nСостав заказа: " + order.products + " на сумму " 
+			+ order.sum + " рублей." + "\nДоставку к " + order.time + " выполнит курьер " 
+			+ restaurant.courier_name + " из ресторана по адресу: " + restaurant.rest_adress)
+	}
+
+
+
+
+
+	function Student(name) {     //задание 4
+		this.name = name;
+		this.isAdmin = false;
+	}
+
+	let user1 = new Student("Вася");
+	let user2 = new Student("Маша");
+
+	alert(user1.name);
+	alert(user1.isAdmin);
+	alert(user2.name);
+	alert(user2.isAdmin);
+
+
+
+
+	function User(name) {      //задание 5
+  		this.name = name;
+
+  		this.sayHi = function() {
+    		alert( "Меня зовут: " + this.name );
+  		};
+	}
+
+	let vasya = new User("Вася");
+
+	vasya.sayHi(); 
+
+
+
+
+	function Calculate(a, b, action = "") {       //доп задание. удобнее всего было реализовать его в виде функции.
+
+		this.a = a;
+		this.b = b;
+
+		this.Addition = function() {
+			alert("Результат сложения: " + (this.a+this.b));
+		}
+
+		this.Subtraction = function() {
+			alert("Результат вычитания: " + (this.a-this.b));
+		}
+
+		this.Multiplication = function() {
+			alert("Результат умножения: " + (this.a*this.b));
+		}
+
+		this.Division = function() {
+			alert("Результат деления: " + (this.a/this.b));
+		}
+
+		this.Power = function() {
+			alert("Результат возведения в степень: " + (this.a**this.b))
+		}
+
+		if (action == "сложение") {
+			return this.Addition();
+		} else if (action == "вычитание") {
+			return this.Subtraction();
+		} else if (action == "умножение") {
+			return this.Multiplication();
+		} else if (action == "деление") {
+			return this.Division();
+		} else if (action == "степень") {
+			return this.Power();
+		} else return this.Addition(), this.Subtraction(), this.Multiplication(), this.Division(), this.Power();
+
+	}
+
+	let numbers = new Calculate(8, 2);
+
+
+
+
+</script>
